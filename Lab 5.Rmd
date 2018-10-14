@@ -1,0 +1,63 @@
+---
+title: "Lab 5"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##1
+```{r}
+win_prop <- function(N){
+  i <-rep(0,N)
+  i <- as.vector(i)
+  for (x in 1:N) {
+    #record the result of one single round#
+    k <- c(0,0,0,0)
+    for (y in 1:4) {
+     a <- sample(1:6,1,replace = TRUE)
+      if(a == 6){
+    k[y] = 1
+  }
+    }
+    if(sum(k)>=1){
+      i[x]=1
+    }
+  }
+  #calculate the proportion of times I win the bet#
+  return(sum(i)/N)
+}
+win_prop(1000)
+win_prop(10000)
+```
+
+
+
+##2
+```{r}
+min_index <- function(x){
+  n <- length(x)
+  flag = 1
+  a = x[1]
+  for (i in 2:n) {
+   if(x[i]<a){
+     a = x[i]
+     flag = i
+   } 
+  }
+  return(paste('The smallest element is',a,'and the index is',flag))
+}
+
+v <- c(1,4,2,0,5)
+min_index(v)
+
+v2 <- c(5,4,3,2,1)
+min_index(v2)
+
+v3 <- c(-1,1,2,3,4)
+min_index(v3)
+```
+
+
+
