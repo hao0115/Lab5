@@ -46,13 +46,17 @@ min_index <- function(x){
      flag = i
    } 
   }
-  return(paste('The smallest element is',a,'and the index is',flag))
+  p <- which(x==a)
+  return(paste("The smallest element is",a,"and the index is",p))
+
 }
+
+
 
 v <- c(1,4,2,0,5)
 min_index(v)
 
-v2 <- c(5,4,3,2,1)
+v2 <- c(5,1,3,1,2)
 min_index(v2)
 
 v3 <- c(-1,1,2,3,4)
